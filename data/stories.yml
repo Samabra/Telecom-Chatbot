@@ -1,0 +1,164 @@
+version: "3.1"
+
+stories:
+
+##- story: Unrecognised intent triggers fallback
+  ##steps:
+   ## - intent: nlu_fallback
+    ##- action: action_default_fallback
+
+
+- story: Account billing information
+  steps:
+    - intent: account_inform
+      entities:
+        - balance_amount: true
+    - action: account_details_form
+    - active_loop: null
+    - action: action_show_balance_amount
+    - intent: account_inform
+      entities: 
+        - billing_history: true
+    - action: utter_view_billing_history
+
+- story: Payment methods and issues
+  steps:
+    - intent: account_inform
+      entities: 
+        - payment_method: true
+    - action: utter_payment_methods
+    - intent: account_inform
+      entities: 
+        - billing_history: true
+    - action: utter_view_billing_history
+    - intent: account_inform
+      entities: 
+        - autopay_status: true
+    - action: utter_auto_payments
+    - intent: account_inform
+      entities: 
+        - late_payment: true
+    - action: utter_late_payment_fees
+
+
+
+- story: Network issues and solutions
+  steps:
+    - intent: network_inform
+      entities: 
+        - network: true
+    - action: utter_check_network_issue
+    - intent: network_inform
+      entities: 
+        - location: true
+    - action: utter_check_outage
+    - intent: network_inform
+      entities: 
+        - signal_strength: true
+    - action: utter_improve_signal
+    - intent: network_inform
+      entities: 
+        - service_status: true
+    - action: utter_reset_network_settings
+
+- story: Product plan queries
+  steps:
+    - intent: product_plan_inform
+      entities: 
+        - plan_name: true
+    - action: utter_available_plans
+    - intent: product_plan_inform
+      entities: 
+        - plan_upgrade: true
+    - action: utter_upgrade_plan
+    - intent: product_plan_inform
+      entities: 
+        - add_plan_data: true
+    - action: utter_add_data
+    - intent: product_plan_inform
+      entities: 
+        - plan_benefits: true
+    - action: utter_plan_benefits
+    - intent: product_plan_inform
+      entities: 
+        - family_plan: true
+    - action: utter_family_group_plan
+
+- story: Plan activation and types
+  steps:
+    - intent: product_plan_inform
+      entities: 
+        - plan_change: true
+    - action: utter_change_plan
+    - intent: product_plan_inform
+      entities: 
+        - plan_pause: true
+    - action: utter_pause_plan
+    - intent: product_plan_inform
+      entities: 
+        - compare_prepaid_postpaid: true
+    - action: utter_prepaid_vs_postpaid
+    
+- story: User asks about balance, then asks about upgrading to a new plan 
+  steps:
+    - intent: account_inform
+      entities:
+        - balance_amount: true
+    - action: account_details_form
+    - active_loop: null
+    - action: action_show_balance_amount
+    - intent: product_plan_inform
+      entities:
+        - plan_change: true
+    - action: utter_change_plan
+
+- story: User asks about balance and then inquires about payment method
+  steps:
+    - intent: account_inform
+      entities:
+        - balance_amount: true
+    - action: account_details_form
+    - active_loop: null
+    - action: action_show_balance_amount
+    - intent: account_inform
+      entities:
+        - payment_method: true
+    - action: utter_payment_methods
+
+- story: User wants to ask about network outage in area, then switch plans
+  steps:
+    - intent: network_inform
+      entities:
+        - location: true
+    - action: utter_check_network_issue
+    - intent: product_plan_inform
+      entities:
+        - plan_change: true
+    - action: utter_change_plan
+
+- story: User asks about balance, billing history, payment methods, then wants to switch to family Plan
+  steps:
+    - intent: account_inform
+      entities:
+        - balance_amount: true
+    - action: account_details_form
+    - active_loop: null
+    - action: action_show_balance_amount
+    - intent: account_inform
+      entities: 
+        - billing_history: true
+    - action: utter_view_billing_history
+    - intent: account_inform
+      entities: 
+        - payment_method: true
+    - action: utter_payment_methods
+    - intent: product_plan_inform
+      entities:
+        - plan_change: true
+    - action: utter_change_plan
+    - intent: product_plan_inform
+      entities:
+      - family_plan: true
+    - action: utter_family_group_plan
+
+

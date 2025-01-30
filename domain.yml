@@ -1,0 +1,160 @@
+version: "3.1"
+
+slots:
+  retry_attempts:
+    type: float
+    initial_value: 0
+    influence_conversation: false
+    mappings:
+      - type: from_intent
+        value: 0
+        intent: session_start
+  account_details:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: account_details
+
+forms:
+  account_details_form:
+    required_slots:
+      - account_details
+
+
+intents:
+  - account_inform
+  - network_inform
+  - product_plan_inform
+
+## Have a look at these entities later. Might not need all of them
+entities:
+  - account_details
+  - plan
+  - phone_number
+  - balance_amount
+  - payment_method
+  - autopay_status
+  - billing_history
+  - late_payment
+  - network_type
+  - location
+  - signal_strength
+  - service_status
+  - roaming_charge
+  - plan_name
+  - bill_type
+  - family_plan
+  - group_plan
+  - prepaid_plan 
+  - postpaid_plan 
+  - plan_change
+  - add_plan_data
+  - plan_upgrade
+  - plan_benefits
+  - compare_prepaid_postpaid
+  - plan_pause
+  - network
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  
+  utter_fallback:
+    - text: "Sorry I don't think I can help you with that request"
+
+  utter_happy:
+    - text: "I'm glad to hear that! Let me know if you need anything else."
+
+  utter_cheer_up:
+    - text: "I'm sorry to hear that you're feeling down. How can I help to cheer you up?"
+
+  utter_did_that_help:
+    - text: "Did that help? Let me know if there's anything else I can do."
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+  utter_current_balance:
+    - text: "Your current balance is $50. Is there anything else you'd like to know?"
+
+  utter_explain_last_bill:
+    - text: "Your last bill was $30. It includes your monthly subscription fee and additional charges. Let me know if you need more details."
+
+  utter_payment_methods:
+    - text: "We accept payments via credit/debit card, PayPal, and bank transfer. Let me know if you'd like more information on a specific method."
+
+  utter_view_billing_history:
+    - text: "You can view your billing history through your account portal. Would you like to get the link?"
+
+  utter_auto_payments:
+    - text: "We offer auto-payment setup for convenience. Would you like to enable auto-pay for your account?"
+
+  utter_late_payment_fees:
+    - text: "Late payment fees are applied if a payment is not received within 10 days after the due date. The fee is $5."
+
+  utter_check_network_issue:
+    - text: "Let me check if there are any known issues with the network. Please wait a moment."
+
+  utter_check_outage:
+    - text: "I'll check if there's any service outage in your location. Could you please provide your location?"
+
+  utter_improve_signal:
+    - text: "You can try restarting your device or moving to an area with better signal coverage to improve network quality."
+
+  utter_reset_network_settings:
+    - text: "You can try resetting your network settings. This will resolve most network-related issues. Would you like instructions on how to do that?"
+
+  utter_available_plans:
+    - text: "We have several plans available, including basic, standard, and premium. Would you like to know more about any specific plan?"
+
+  utter_upgrade_plan:
+    - text: "You can upgrade to a higher plan to enjoy more benefits, like extra data and faster speeds. Would you like help upgrading?"
+
+  utter_add_data:
+    - text: "You can add more data to your plan. Would you like to add 5GB, 10GB, or more?"
+
+  utter_plan_benefits:
+    - text: "The benefits of our plans include high-speed internet, unlimited calls, and extra data for streaming and browsing."
+
+  utter_family_group_plan:
+    - text: "We offer family group plans that allow you to share data and save money. Would you like to know more about these?"
+
+  utter_change_plan:
+    - text: "You can change your plan at any time. Would you like to explore your options?"
+
+  utter_pause_plan:
+    - text: "You can pause your plan temporarily if you don't need the services for a while. Would you like to pause your current plan?"
+
+  utter_prepaid_vs_postpaid:
+    - text: "Prepaid plans allow you to pay upfront for your services, while postpaid plans bill you at the end of onth. Which one would you prefer?"
+  
+actions:
+  - action_show_balance_amount
+  - action_display_payment_method
+  - action_show_billing_period
+  - action_show_late_payment
+  - action_check_network_type
+  - action_check_location
+  - action_check_signal_strength
+  - action_check_service_status
+  - action_show_roaming_charge
+  - action_show_plan_name
+  - action_show_bill_type
+  - action_show_family_plan
+  - action_show_group_plan
+  - action_show_prepaid_plan
+  - action_show_postpaid_plan
+  - action_change_plan
+  - action_show_plan_benefits
+  - action_compare_prepaid_postpaid
+  - action_extract_entities
+  - action_default_fallback
+  - action_check_network
+  - action_check_outage
+  - action_reset_network_settings
+  - action_view_billing_history
+  - action_enable_auto_payment
+  - action_upgrade_plan
+  - action_add_data
+  - action_pause_plan

@@ -1,0 +1,197 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: account_inform
+  examples: |
+    - My account ID is [12345](account_details)
+    - [23456](account_details)
+    - I have the account number [98765](account_details)
+    - My account number is [65432](account_details)
+    - Account number [12345](account_details)
+    - My ID is [34567](account_details)
+    - ID is [123456](account_details)
+    - The number of my account is [456789](account_details)
+    - Account number is [67890](account_details)
+    - I forgot my account ID, can you check if it’s [12345](account_details)?
+    - My account ID might be [45678](account_details)
+    - You can use my account ID [23456](account_details)
+    - Does my account ID [98765](account_details) work?
+    - My email is [johndoe@example.com](account_details)
+    - Email is [ella.h@example.com](account_details)
+    - [janesmith@gmail.com](account_details)
+    - The email is [george.jones@example.com](account_details)
+    - [jon_jones@yahoo.com](account_details)
+    - [Islammakachev@outlook.com](account_details)
+    - Here is my email [john.citizen@gmail.com](account_details)
+    - [joe.rogan@email.com](account_details)
+    - My email address is [muhammad_mosman@example.com](account_details)
+    - Can you check my account with this email [janesmith@gmail.com](account_details)?
+    - The registered email should be [george.jones@example.com](account_details).
+    - Use my email [islammakachev@outlook.com](account_details) to find the account.
+    - Is my email [john.citizen@gmail.com](account_details) linked to this account?
+    - My phone number is [61451123321](account_details)
+    - Phone number is [1234567890](account_details)
+    - [2345678901](account_details)
+    - [3214657891](account_details)
+    - My number is [9081237653](account_details)
+    - The phone number is [3456789012](account_details)
+    - I can be reached at [5551234567](account_details)
+    - The phone number is [123-456-7890](account_details)
+    - Use my number [61451123321](account_details) to find my account.
+    - My registered phone number is [9081237653](account_details).
+    - Can you check with the number [1234567890](account_details)?
+    - Is the number [3214657891](account_details) associated with my account?
+    - I believe my phone number is [3456789012](account_details).
+    - What is my current [balance](balance_amount)
+    - I want to check my [balance](balance_amount)
+    - Can I check [how much money I have](balance_amount) remaining
+    - I want to see the [amount of money I have](balance_amount) left over.
+    - Can I view my [remaining money](balance_amount)
+    - Can you show my [last bill](billing_history)
+    - How [can I pay](payment_methods) my bill online
+    - What is my [expenditure](billing_history) for this month
+    - Can you show me my [expenses](billing_history)
+    - What are the available [payment methods](payment_method)
+    - Why was I charged extra this [month](billing_period)
+    - How can I view my [billing history](billing_history)
+    - I want to see my [expenses for last month](billing_history)
+    - How much did I [spend in August](billing_history)
+    - What are my bills for the [last financial year](billing_history)
+    - I want to know my [expenses](billing_history)
+    - What happens if I miss a [payment](payment_method)
+    - What are some [ways I can pay](payment_method)?
+    - What [forms of payment](payment_method) are there?
+    - How many [forms of payment](payment_method) are there?
+    - What is the [best way to pay](payment_method)? 
+    - How do I set up [automatic payments](autopay_status)
+    - I want to [automatically pay](autopay_status)
+    - Pay my bills [automatically](autopay_status)
+    - What are the [late payment fees](late_payment)
+    - Will I be charged a [late payment fee](late_payment)?
+    - If I [pay late](late_payment), what happens?
+    - [account bill](billing_period)
+    - [account payment](payment_method)
+    - How do I pay my [bill](billing_period) using [credit card](payment_method)?
+    - Can I change my [payment method](payment_method) for the [bill](billing_period)?
+    - I missed the payment for [July](billing_period), what happens now?
+    - Can you explain why I was charged for [international calls](bill_type)?
+    - Can I be charged for [domestic calls](bill_type)?
+    - How much will I be charged for a [subscription](bill_type)?
+    - I don't understand the extra charge on my [July](billing_history) bill.
+    - I want to see my [billing history](billing_history)
+
+    
+- intent: network_inform 
+  examples: |
+    - Why is my [network connection](network) slow?
+    - Is there an outage in my [area](location)
+    - I can't seem to find a [signal](signal_strength) in my [vicinity](location)?
+    - Why is the [signal](signal_strength) in my [place](location) so bad?
+    - How do I report a [network](network) issue
+    - How can I improve my [network signal](signal_strength)
+    - Why is the [signal so bad](signal_strength)?
+    - What is the [signal like](signal_strength) in my [location](location)?
+    - What are the steps to reset my [network settings](network)
+    - How do I check my [network coverage](network)
+    - How reliable is this [phone service](network)?
+    - I want a strong [network](network)
+    - Is the [network working](service_status)
+    - Why is my [call](service_status) dropping frequently 
+    - What should I do if I have no [service](service_status)
+    - How should I check the [quality of my service](service_status)
+    - I am getting [no service](service_status).
+    - My phone is not getting any [service](service_status)
+    - What is the [service like](service_status) [near](location) me? 
+    - How do I switch from [4G](network_type) to [5G](network_type)
+    - Is [3G](network_type) shutting down?
+    - What is the difference between [4G](network_type) and [5G](network_type)?
+    - What is the [roaming policy](roaming_charge)
+    - How much do I get [charged while I am travelling](roaming_charge)
+    - I am going [overseas, what are the charges like](roaming_charge)?
+    - What is the charge for connecting to a network in another [country](roaming_charge)?
+    - Explain your [thing about roaming fees](roaming_charge).
+    - [network](network_type) 
+    - [network signal](signal_strength)
+    - [network coverage](network_type)
+    - Why is my [4G](network_type) signal slow today?
+    - Why is my [5G](network_type) signal slow today?
+    - How can I check my [signal strength](signal_strength)?
+    - Is there a [network](network_type) issue in the [area](location)?
+    - How do I report a [dropped call](service_status)?
+    - How can I improve my [signal strength](signal_strength) in my [area](location).
+
+- intent: product_plan_inform
+  examples: |
+    - What [plans](plan_name) are available for my current usage?
+    - List out all the [plans you have](plan_name).
+    - What is your [best plan](plan_name)? 
+    - How do I [upgrade my plan](plan_upgrade)
+    - [Upgrade](plan_upgrade) my plan
+    - [Upgrade](plan_upgrade) to a [premium plan](plan_name).
+    - Make [my plan better](plan_upgrade).
+    - I need to [modify](plan_upgrade) my plan. 
+    - Can I add more [data to my current plan](add_plan_data)
+    - What are the [benefits of each plan](plan_benefits)
+    - List the [helpful things about this plan](plan_benefits).
+    - What can [I get from this plan](plan_benefits)?
+    - I want to know [why I should have this plan](plan_benefits)?
+    - How can I [change my plan](plan_change)
+    - I want to [change plans](plan_change)
+    - Can I [switch](plan_change) to a different plan 
+    - [Change the plan](plan_change)
+    - Please [change](plan_change) my plan to a premium one.
+    - Please [change](plan_change) to a different one.
+    - [Move to](plan_change) a different plan.
+    - Is there a [family plan](family_plan) or [group plan](group_plan) available?
+    - What is a [plan suitable for my family](family_plan)?
+    - I want something for my [family](family_plan)?
+    - [Me and my friends](group_plan) want a plan.
+    - Is there a [collective plan](group_plan)
+    - What is the cost of [international calls](roaming_charge) on my [plan](plan_name)
+    - Can I [pause my plan](plan_pause) temporarily
+    - How do I activate a new [plan](plan_name)
+    - I want a [postpaid plan](postpaid_plan)
+    - I want a [prepaid plan](prepaid_plan) 
+    - What is the [difference between prepaid and postpaid plans](compare_prepaid_postpaid)
+    - Could you [compare between a postpaid and prepaid plan](compare_prepaid_postpaid)
+    - [plans](plan_name)
+    - [Family plan](family_plan)
+    - [Group plan](group_plan)
+    - [prepaid](prepaid_plan)
+    - [postpaid](postpaid_plan)
+    - Can you tell me about your [family plan](family_plan)
+    - What's included in the [postpaid plan](postpaid_plan)
+    - What happens if I switch to a [prepaid](prepaid_plan) plan?
+    - How do I [change my plan](plan_change) to [postpaid](postpaid_plan)?
+    - Can I [change my plan](plan_change) to something with more data?
+    - How do I [change my plan](plan_change) from [family](family_plan) to [individual](plan_name)?
+    - What features does my current plan offer?
+

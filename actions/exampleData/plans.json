@@ -1,0 +1,136 @@
+{
+    "plans": [
+      {
+        "name": "Basic",
+        "description": "A plan for minimal phone usage, offering limited data, calls, and texts.",
+        "features": {
+          "data": "5GB",
+          "calls": "Limited minutes",
+          "texts": "Limited texts",
+          "speed": "3G or basic 4G",
+          "extra_benefits": "None",
+          "price": "$10 per month"
+        }
+      },
+      {
+        "name": "Premium",
+        "description": "A plan for power users offering more data, faster speeds, and added perks.",
+        "features": {
+          "data": "50GB",
+          "calls": "Unlimited calls",
+          "texts": "Unlimited texts",
+          "speed": "5G",
+          "extra_benefits": "Streaming service subscriptions, international roaming",
+          "price": "$50 per month"
+        }
+      },
+      {
+        "name": "Unlimited",
+        "description": "A plan that offers unlimited data, calls, and texts, with premium speeds.",
+        "features": {
+          "data": "Unlimited",
+          "calls": "Unlimited calls",
+          "texts": "Unlimited texts",
+          "speed": "5G",
+          "extra_benefits": "Free device, cloud storage, international roaming",
+          "price": "$70 per month"
+        }
+      },
+      {
+        "name": "Family",
+        "description": "A plan that allows multiple users (family members) to share a set data allowance and benefit from shared pricing.",
+        "features": {
+          "data": "100GB shared",
+          "calls": "Unlimited calls within the family",
+          "texts": "Unlimited texts",
+          "speed": "5G",
+          "extra_benefits": "Discounted rates for additional members",
+          "price": "$60 per month (for up to 4 members)"
+        }
+      },
+      {
+        "name": "Group",
+        "description": "A plan designed for groups of people who can share a pool of resources at a discounted rate.",
+        "features": {
+          "data": "200GB shared",
+          "calls": "Unlimited calls within the group",
+          "texts": "Unlimited texts",
+          "speed": "5G",
+          "extra_benefits": "Discounted rates for additional members, flexible billing",
+          "price": "$80 per month (for up to 6 members)"
+        }
+      },
+      {
+        "name": "Prepaid",
+        "description": "A plan where users pay upfront for the services they wish to use, often with no long-term commitment.",
+        "features": {
+          "data": "10GB",
+          "calls": "Pay-as-you-go",
+          "texts": "Pay-as-you-go",
+          "speed": "4G",
+          "extra_benefits": "No contract, easy to change plans",
+          "price": "$20 per month"
+        }
+      },
+      {
+        "name": "Postpaid",
+        "description": "A plan where users can use the services they want to use and pay for it later.",
+        "features":{
+          "data": "12GB",
+          "calls": "Unlimited calls within the network",
+          "texts": "Unlimited texts within the network",
+          "speed": "4G / 5G",
+          "extra_benefits": "No upfront payment, contract options, flexible billing cycle",
+          "price": "$30 per month"
+        }
+      },
+      {
+        "name": "Data-Only",
+        "description": "A plan focused primarily on data usage, often used for tablets, mobile hotspots, or other devices.",
+        "features": {
+          "data": "50GB",
+          "calls": "None",
+          "texts": "None",
+          "speed": "5G",
+          "extra_benefits": "Mobile hotspot support",
+          "price": "$30 per month"
+        }
+      },
+      {
+        "name": "International",
+        "description": "A plan designed for users who need to make international calls or use data while traveling abroad.",
+        "features": {
+          "data": "10GB (roaming included)",
+          "calls": "Discounted international calls",
+          "texts": "Unlimited international texts",
+          "speed": "4G / 5G",
+          "extra_benefits": "Free roaming in select countries",
+          "price": "$40 per month"
+        }
+      },
+      {
+        "name": "Student",
+        "description": "A discounted plan designed for students, often with more affordable pricing and specific perks.",
+        "features": {
+          "data": "20GB",
+          "calls": "Unlimited calls within the network",
+          "texts": "Unlimited texts",
+          "speed": "4G",
+          "extra_benefits": "Access to educational apps, streaming services",
+          "price": "$15 per month"
+        }
+      },
+      {
+        "name": "Senior",
+        "description": "A plan designed for seniors, typically offering lower costs and simplified services.",
+        "features": {
+          "data": "2GB",
+          "calls": "Unlimited calls within the network",
+          "texts": "Unlimited texts",
+          "speed": "3G / 4G",
+          "extra_benefits": "Simplified interface, priority customer support",
+          "price": "$10 per month"
+        }
+      }
+    ]
+  }

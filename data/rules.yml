@@ -1,0 +1,21 @@
+version: "3.1"
+
+rules:
+  # Respond to greetings
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  # Respond to happy mood
+  - rule: Respond to happiness
+    steps:
+      - intent: mood_great
+      - action: utter_happy
+
+  
+  # Handle fallback
+  - rule: Fallback for any unrecognised intents
+    steps:
+    - intent: nlu_fallback
+    - action: utter_fallback

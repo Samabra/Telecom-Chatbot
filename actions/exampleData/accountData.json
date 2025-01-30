@@ -1,0 +1,222 @@
+{
+  "accounts": [
+    {
+      "account_id": "12345",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "phone_number": "1234567890",
+      "balance": 120.50,
+      "plan": "Premium",
+      "payment_methods": [
+        {
+          "method": "Credit Card",
+          "details": "Visa ending in 1234",
+          "default": true
+        },
+        {
+          "method": "PayPal",
+          "details": "johndoe@paypal.com",
+          "default": false
+        }
+      ],
+      "billing_history": [
+        {
+          "month": "11-2024",
+          "total_amount": 50.00,
+          "charges": [
+            {
+              "service": "Premium subscription",
+              "amount": 50.00,
+              "description": "Premium subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "01-11-2024"
+        },
+        {
+          "month": "10-2024",
+          "total_amount": 50.00,
+          "charges": [
+            {
+              "service": "Premium subscription",
+              "amount": 50.00,
+              "description": "Premium subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "01-10-2024"
+        }
+      ]
+    },
+    {
+      "account_id": "67890",
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "phone_number": "9876543210",
+      "balance": 60.75,
+      "plan": "Basic",
+      "payment_methods": [
+        {
+          "method": "Credit Card",
+          "details": "MasterCard ending in 4321",
+          "default": true
+        },
+        {
+          "method": "PayPal",
+          "details": "janesmith@paypal.com",
+          "default": false
+        }
+      ],
+      "billing_history": [
+        {
+          "month": "11-2024",
+          "total_amount": 35.00,
+          "charges": [
+            {
+              "service": "Basic subscription",
+              "amount": 35.00,
+              "description": "Basic subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "13-11-2024"
+        },
+        {
+          "month": "10-2024",
+          "total_amount": 35.00,
+          "charges": [
+            {
+              "service": "Basic subscription",
+              "amount": 35.00,
+              "description": "Basic subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "13-10-2024"
+        },
+        {
+          "month": "09-2024",
+          "total_amount": 35.00,
+          "charges": [
+            {
+              "service": "Basic subscription",
+              "amount": 35.00,
+              "description": "Basic subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "13-09-2024"
+        }
+      ]
+    },
+    {
+      "account_id": "23456",
+      "name": "Ella Henderson",
+      "email": "ella.h@example.com",
+      "phone_number": "2345678901",
+      "balance": 110.75,
+      "plan": "Premium",
+      "payment_methods": [
+        {
+          "method": "Credit Card",
+          "details": "Visa ending in 6789",
+          "default": true
+        },
+        {
+          "method": "PayPal",
+          "details": "ellahenderson@paypal.com",
+          "default": false
+        }
+      ],
+      "billing_history": [
+        {
+          "month": "11-2024",
+          "total_amount": 50.00,
+          "charges": [
+            {
+              "service": "Premium subscription",
+              "amount": 50.00,
+              "description": "Premium subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "18-11-2024"
+        },
+        {
+          "month": "10-2024",
+          "total_amount": 50.00,
+          "charges": [
+            {
+              "service": "Premium subscription",
+              "amount": 50.00,
+              "description": "Premium subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "18-10-2024"
+        },
+        {
+          "month": "09-2024",
+          "total_amount": 55.00,
+          "charges": [
+            {
+              "service": "Premium subscription",
+              "amount": 55.00,
+              "description": "Premium subscription fee with late payment"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "20-09-2024"
+        }
+      ]
+    },
+    {
+      "account_id": "65432",
+      "name": "George Jones",
+      "email": "georgejones@example.com",
+      "phone_number": "9012345678",
+      "balance": 53.50,
+      "plan": "Basic",
+      "payment_methods": [
+        {
+          "method": "PayPal",
+          "details": "georgejones@paypal.com",
+          "default": true
+        },
+        {
+          "method": "Credit Card",
+          "details": "MasterCard ending in 6543",
+          "default": false
+        }
+      ],
+      "billing_history": [
+        {
+          "month": "11-2024",
+          "total_amount": 35.00,
+          "charges": [
+            {
+              "service": "Basic subscription",
+              "amount": 35.00,
+              "description": "Basic subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "15-11-2024"
+        },
+        {
+          "month": "10-2024",
+          "total_amount": 35.00,
+          "charges": [
+            {
+              "service": "Basic subscription",
+              "amount": 35.00,
+              "description": "Basic subscription fee"
+            }
+          ],
+          "payment_status": "Paid",
+          "payment_date": "15-10-2024"
+        }
+      ]
+    }
+  ]
+}
