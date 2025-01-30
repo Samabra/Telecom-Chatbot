@@ -180,7 +180,7 @@ class AccountService:
         
         account = self.getAccount(account_details)
 
-        if not account:
+        if account is None:
             return "Account not found. Would you like to make one?"
         
         if not self.isExistingPayment(currentMethod, account_details):
@@ -362,6 +362,10 @@ class ActionAccountBalance(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
         account_details = tracker.get_slot("account_details")
+        
+        if account_details is None:
+            dispatcher.utter_message(text="Your account ID, email or phone number is required to be able to access your account details.")
+            return []
 
         accountService = AccountService()
         balance = accountService.getAccountBalance(account_details)
