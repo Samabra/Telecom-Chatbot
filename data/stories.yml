@@ -26,19 +26,18 @@ stories:
     - intent: account_inform
       entities: 
         - payment_method: true
-    - action: utter_payment_methods
+    - action: account_details_form
+    - active_loop: null
+    - action: action_display_payment_method
     - intent: account_inform
       entities: 
         - billing_history: true
-    - action: utter_view_billing_history
-    - intent: account_inform
-      entities: 
-        - autopay_status: true
-    - action: utter_auto_payments
+    - action: action_show_billing_period
     - intent: account_inform
       entities: 
         - late_payment: true
-    - action: utter_late_payment_fees
+    - action: action_show_late_payment
+
 
 
 

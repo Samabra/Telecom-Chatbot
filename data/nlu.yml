@@ -91,22 +91,16 @@ nlu:
     - What [forms of payment](payment_method) are there?
     - How many [forms of payment](payment_method) are there?
     - What is the [best way to pay](payment_method)? 
-    - How do I set up [automatic payments](autopay_status)
-    - I want to [automatically pay](autopay_status)
-    - Pay my bills [automatically](autopay_status)
-    - What are the [late payment fees](late_payment)
-    - Will I be charged a [late payment fee](late_payment)?
-    - If I [pay late](late_payment), what happens?
-    - [account bill](billing_period)
     - [account payment](payment_method)
-    - How do I pay my [bill](billing_period) using [credit card](payment_method)?
-    - Can I change my [payment method](payment_method) for the [bill](billing_period)?
-    - I missed the payment for [July](billing_period), what happens now?
-    - Can you explain why I was charged for [international calls](bill_type)?
-    - Can I be charged for [domestic calls](bill_type)?
-    - How much will I be charged for a [subscription](bill_type)?
+    - How do I pay my bill using [credit card](payment_method)?
+    - Can I change my [payment method](payment_method) for the bill?
     - I don't understand the extra charge on my [July](billing_history) bill.
     - I want to see my [billing history](billing_history)
+    - What is my [bill for August](billing_history)?
+    - I want to [see my bill](billing_history) for [July](month)?
+    - 
+    - Can you [show me my expenses](billing_history) for [last year](year)?
+    - 
 
     
 - intent: network_inform 
@@ -150,15 +144,19 @@ nlu:
 
 - intent: product_plan_inform
   examples: |
-    - What [plans](plan_name) are available for my current usage?
-    - List out all the [plans you have](plan_name).
-    - What is your [best plan](plan_name)? 
-    - How do I [upgrade my plan](plan_upgrade)
-    - [Upgrade](plan_upgrade) my plan
-    - [Upgrade](plan_upgrade) to a [premium plan](plan_name).
-    - Make [my plan better](plan_upgrade).
-    - I need to [modify](plan_upgrade) my plan. 
-    - Can I add more [data to my current plan](add_plan_data)
+    - What [plans are available?](plan_details)
+    - List out all the [plans you have](plan_details).
+    - I want to know [all your plans](plan_details).
+    - What sort of [plans do you have?](plan_details).
+    - I need to know what [plans you offer?](plan_details).
+    - [Plans on offer](plan_details).
+    - What [plans do you provide?](plan_details).
+    - What are some of [your plans?](plan_details).
+    - Can I have a [list of your plans?](plan_details).
+    - What [plans are on offer?](plan_details).
+    - How do I [upgrade my plan](?
+    - [Upgrade](plan_change) my plan
+    - [Upgrade](plan_change) to a [premium](plan_name) plan.
     - What are the [benefits of each plan](plan_benefits)
     - List the [helpful things about this plan](plan_benefits).
     - What can [I get from this plan](plan_benefits)?

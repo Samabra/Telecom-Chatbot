@@ -20,6 +20,27 @@ forms:
   account_details_form:
     required_slots:
       - account_details
+  
+  change_payment_form:
+    required_slots:
+      - current_method
+      - new_method
+  
+  switch_payment_form:
+    - current_method_switch
+    - other_method
+  
+  add_payment_form:
+    - new_method_add
+
+  remove_payment_form:
+    - remove_method
+
+  change_plan_form:
+    - new_plan
+  
+
+
 
 
 intents:
@@ -106,7 +127,7 @@ responses:
     - text: "You can try resetting your network settings. This will resolve most network-related issues. Would you like instructions on how to do that?"
 
   utter_available_plans:
-    - text: "We have several plans available, including basic, standard, and premium. Would you like to know more about any specific plan?"
+    - text: "We offer the following plans: basic, premium, unlimited, family, group, prepaid, postpaid, data-only, international, student and senior plans. Would you like further information about any of them?"
 
   utter_upgrade_plan:
     - text: "You can upgrade to a higher plan to enjoy more benefits, like extra data and faster speeds. Would you like help upgrading?"
@@ -132,7 +153,7 @@ responses:
 actions:
   - action_show_balance_amount
   - action_display_payment_method
-  - action_show_billing_period
+  - action_view_billing_history
   - action_show_late_payment
   - action_check_network_type
   - action_check_location
@@ -141,14 +162,24 @@ actions:
   - action_show_roaming_charge
   - action_show_plan_name
   - action_show_bill_type
-  - action_show_family_plan
-  - action_show_group_plan
-  - action_show_prepaid_plan
-  - action_show_postpaid_plan
+  - action_current_payment_method
+  - action_change_payment_method
+  - action_switch_payment_method
+  - action_add_payment_method
+  - action_remove_payment_method
   - action_change_plan
-  - action_show_plan_benefits
-  - action_compare_prepaid_postpaid
-  - action_extract_entities
+  - action_basic_plan
+  - action_premium_plan
+  - action_unlimited_plan
+  - action_family_plan
+  - action_group_plan
+  - action_prepaid_plan
+  - action_postpaid_plan
+  - action_get_data_only_plan
+  - action_get_international_plan
+  - action_student_plan
+  - action_senior_plan
+  - action_change_plan
   - action_default_fallback
   - action_check_network
   - action_check_outage

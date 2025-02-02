@@ -263,31 +263,35 @@ class Plans:
     def __init__(self, filePath=None):
         if Plans.plans is None:
             self.filePath = filePath or self.findFile()
-            self.plans = self.loadPlans()
+            Plans.plans = self.loadPlans()
     
     def loadPlans(self):
         try:
             with open(self.filePath, 'r') as file:
-                return json.load(file)
+                data = json.load(file)
+            if not isinstance(data, dict) or "plans" not in data:
+                raise ValueError("Error: Account data file must contain an 'accounts' key.")
+            return data["accounts"]
         except FileNotFoundError:
-            raise FileNotFoundError("Error: Account data file is missing.")
+            print("Warning: Plans data file is missing.")
+            return None
         except json.JSONDecodeError:
-            raise ValueError("Error: Account data file is not a valid JSON file.")
+            raise ValueError("Error: Plans data file is not a valid JSON file.")
 
 
     def getPlans(self):
-        if not self.plans:
+        if Plans.plan is None:
             return None
         else:
-            return self.plans
+            return Plans.plans
     
     def getPlanDetails(self, planName):
         plans = self.getPlans()
 
-        if not plans:
+        if plans is None:
             return "There are currently no available plans."
         
-        for plan in self.plans.get("plans", []):
+        for plan in Plans.plans.get("plans", []):
             if plan["name"].lower() == planName.lower():
                 planDetails = plan["description"]
                 features = plan["features"]
@@ -386,8 +390,6 @@ class ActionBillingHistory(Action):
         financialYear = tracker.get_slot('financial_year')
         month = tracker.get_slot('month')
         year = tracker.get_slot('year')
-        email = tracker.get_slot("email")
-        phone_number = tracker.get_slot("phone_number")
 
         if not ValidateAccountDetails.validateAccountDetails(tracker):
             dispatcher.utter_message(text="I require either your account ID, email or phone number is required for me to show your billing history.")
@@ -462,10 +464,10 @@ class CurrentPayment(Action):
         accountService = AccountService()
         currentPaymentMethod = accountService.getCurrentPaymentMethod(account_details)
         
-        if not currentPaymentMethod:
-            return f"You do not seem to have a payment method set for this account. Would you like to add one?"
+        if currentPaymentMethod is None:
+            return dispatcher.utter_message(text="You do not seem to have a payment method set for this account. Would you like to add one?")
         
-        return f"Your current payment method is '{currentMethod['method']}' with details: {currentMethod['details']}."
+        return dispatcher.utter_message(text=f"Your current payment method is '{currentMethod['method']}' with details: {currentMethod['details']}.")
 
 
 class ChangePayment(Action):
@@ -505,7 +507,7 @@ class SwitchPayment(Action):
     
     def run(self, dispatcher, tracker, domain):
         account_details = tracker.get_slot("account_details")
-        currentMethod = tracker.get_slot("current_method")
+        currentMethod = tracker.get_slot("current_method_switch")
         otherMethod = tracker.get_slot("other_method")
 
         if not ValidateAccountDetails.validateAccountDetails(tracker):
@@ -515,10 +517,10 @@ class SwitchPayment(Action):
         paymentValidator = PaymentValidator()
         
         if not paymentValidator.isValidPayment(currentMethod):
-            return f"{currentMethod.capitalize()} is not your current payment method."
+            return dispatcher.utter_message(text=f"{currentMethod.capitalize()} is not your current payment method.")
         
         if not paymentValidator.isValidPayment(otherMethod):
-            return f"{otherMethod.capitalize()} is not a payment set up with your account."
+            return dispatcher.utter_message(text=f"{otherMethod.capitalize()} is not a payment set up with your account.")
 
         accountService = AccountService()
         message = accountService.switchPaymentMethod(currentMethod, otherMethod, account_details)
@@ -533,7 +535,7 @@ class AddPayment(Action):
     
     def run(self, dispatcher, tracker, domain):
         account_details = tracker.get_slot("account_details")
-        newMethod = tracker.get_slot("new_method")
+        newMethod = tracker.get_slot("new_method_add")
 
         if not ValidateAccountDetails.validateAccountDetails(tracker):
             dispatcher.utter_message(text="To add more payment options, I need your either your account ID, email or phone number.")
@@ -543,7 +545,7 @@ class AddPayment(Action):
         paymentValidator = PaymentValidator()
 
         if not paymentValidator.isValidPayment(newMethod):
-            return f"{newMethod.capitalize()} is not a valid payment."
+            return dispatcher.utter_message(text=f"{newMethod.capitalize()} is not a valid payment.")
 
         accountService = AccountService()
         message = accountService.addPaymentMethod(newMethod, account_details)
@@ -565,7 +567,7 @@ class RemovePayment(Action):
         paymentValidator = PaymentValidator()
 
         if not paymentValidator.isValidPayment(removeMethod):
-            return f"We cannot remove {removeMethod.capitalize()} as it is not a valid payment method."
+            return dispatcher.utter_message(text=f"We cannot remove {removeMethod.capitalize()} as it is not a valid payment method.")
 
         accountService = AccountService()
         message = accountService.removePaymentMethod(removeMethod, account_details)
