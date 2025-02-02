@@ -28,15 +28,11 @@ stories:
         - payment_method: true
     - action: account_details_form
     - active_loop: null
-    - action: action_display_payment_method
+    - action: action_current_payment_method
     - intent: account_inform
       entities: 
         - billing_history: true
-    - action: action_show_billing_period
-    - intent: account_inform
-      entities: 
-        - late_payment: true
-    - action: action_show_late_payment
+    - action: action_view_billing_history
 
 
 
@@ -64,7 +60,7 @@ stories:
   steps:
     - intent: product_plan_inform
       entities: 
-        - plan_name: true
+        - plan_details: true
     - action: utter_available_plans
     - intent: product_plan_inform
       entities: 
