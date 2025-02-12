@@ -82,7 +82,7 @@ nlu:
     - What are the available [payment methods](payment_method)
     - Why was I charged extra this [month](billing_history)
     - How can I view my [billing history](billing_history)
-    - I want to see my [expenses for last month](billing_history)
+    - I want to see [my expenses](billing_history) for [last month](month)
     - How much did I [spend in August](billing_history)
     - What are my bills for the [last financial year](billing_history)
     - Can I [see my expenses](billing_history) for the [financial year of 2024](financial_year)
@@ -91,7 +91,7 @@ nlu:
     - How [much did I pay for this plan](billing_history) across [this year](year).
     - What was [my total expenditure](billing_history) [last year](year).
     - I need to [know my expenses](billing_history) for [2023](year).
-    - Can you [show me my bills](billing_history) for [FY24](financial_year)
+    - Can you [show me my bills](billing_history) for [FY2024](financial_year)
     - What are [my expenses](billing_history) for the year [2022](year).
     - How [much did I spend](billing_history) in [2020](year)
     - Show me my [billing history](billing_history) from [two years ago](year).
@@ -108,8 +108,46 @@ nlu:
     - [FY 2020](financial_year)
     - [FY 2024](financial_year)
     - [FY 2032](financial_year)
-    - [Financial year of 2016](financial_year)
+    - [FY 2010](financial_year)
+    - [FY 2011](financial_year)
+    - [FY 2012](financial_year)
+    - [FY 2013](financial_year)
+    - [FY 2015](financial_year)
+    - [FY 2016](financial_year)
+    - [FY 2017](financial_year)
+    - [FY2014](financial_year)
+    - [FY2015](financial_year)
+    - [FY2016](financial_year)
+    - [FY2017](financial_year)
+    - [FY2011](financial_year)
+    - [FY2010](financial_year)
+    - [FY2012](financial_year)
+    - [FY2013](financial_year)
+    - [FY2018](financial_year)
+    - [FY2019](financial_year)
+    - [FY2020](financial_year)
+    - [FY2021](financial_year)
+    - [FY2022](finacial_year)
+    - [Financial year 2016](financial_year)
     - [Financial year 2019](financial_year)
+    - [Financial year 2017](financial_year)
+    - [Financial year 2018](financial_year)
+    - [Financial year 2020](financial_year)
+    - [Financial year 2021](financial_year)
+    - [Financial year 2022](financial_year)
+    - [Financial year 2023](financial_year)
+    - [Financial year 2010](financial_year)
+    - [Financial year of 2010](financial_year)
+    - [Financial year of 2011](financial_year)
+    - [Financial year of 2012](financial_year)
+    - [Financial year of 2013](financial_year)
+    - [Financial year of 2014](financial_year)
+    - [Financial year of 2015](financial_year)
+    - [Financial year of 2016](financial_year)
+    - [Financial year of 2017](financial_year)
+    - [Financial year of 2018](financial_year)
+    - [Financial year of 2019](financial_year)
+    - [Financial year of 2020](financial_year)
     - [2016](year)
     - [2017](year)
     - [2018](year)
@@ -130,6 +168,7 @@ nlu:
     - [five years ago](year)
     - [six years ago](year)
     - [seven years ago](year)
+    - [eight years ago](year)
     - [January](month)
     - [February](month)
     - [March](month)
@@ -166,6 +205,11 @@ nlu:
     - [10 months ago](month)
     - [11 months ago](month)
     - [12 months ago](month)
+    - Show me [my expenses](billing_history) from [last month](month).
+    - What were [my total charges](billing_history) from [two months ago](month).
+    - Can you tell me [all the bills](billing_history) from [three months ago](month).
+    - Display for me [all my expenses](billing_history) from around [four months ago](month).
+    - I need to see [all my expenses](billing_history) from [5 months ago](month)
     - What happens if I miss a [payment](payment_method)
     - What are some [ways I can pay](payment_method)?
     - What [forms of payment](payment_method) are there?
@@ -222,7 +266,7 @@ nlu:
 
 - intent: product_plan_inform
   examples: |
-    - What [plans are available?](plan_details)
+    - What [plans are available](plan_details)?
     - List out all the [plans you have](plan_details).
     - I want to know [all your plans](plan_details).
     - What sort of [plans do you have?](plan_details).
@@ -232,42 +276,41 @@ nlu:
     - What are some of [your plans?](plan_details).
     - Can I have a [list of your plans?](plan_details).
     - What [plans are on offer?](plan_details).
-    - How do I [upgrade my plan](?
+    - List for me [all your plans](plan_details).
+    - Tell me about [every plan you have](plan_details).
+    - What [plans do you sell](plan_details)?
+    - [Plans yoy guys give](plan_details)?
+    - What [plans do you offer](plan_details)? 
+    - How do I [change my plan](plan_change)?
     - [Upgrade](plan_change) my plan
     - [Upgrade](plan_change) to a [premium](plan_name) plan.
-    - What are the [benefits of each plan](plan_benefits)
-    - List the [helpful things about this plan](plan_benefits).
-    - What can [I get from this plan](plan_benefits)?
-    - I want to know [why I should have this plan](plan_benefits)?
-    - How can I [change my plan](plan_change)
-    - I want to [change plans](plan_change)
-    - Can I [switch](plan_change) to a different plan 
-    - [Change the plan](plan_change)
-    - Please [change](plan_change) my plan to a premium one.
-    - Please [change](plan_change) to a different one.
-    - [Move to](plan_change) a different plan.
-    - Is there a [family plan](family_plan) or [group plan](group_plan) available?
-    - What is a [plan suitable for my family](family_plan)?
-    - I want something for my [family](family_plan)?
-    - [Me and my friends](group_plan) want a plan.
-    - Is there a [collective plan](group_plan)
-    - What is the cost of [international calls](roaming_charge) on my [plan](plan_name)
-    - Can I [pause my plan](plan_pause) temporarily
-    - How do I activate a new [plan](plan_name)
-    - I want a [postpaid plan](postpaid_plan)
-    - I want a [prepaid plan](prepaid_plan) 
-    - What is the [difference between prepaid and postpaid plans](compare_prepaid_postpaid)
-    - Could you [compare between a postpaid and prepaid plan](compare_prepaid_postpaid)
-    - [plans](plan_name)
-    - [Family plan](family_plan)
-    - [Group plan](group_plan)
-    - [prepaid](prepaid_plan)
-    - [postpaid](postpaid_plan)
-    - Can you tell me about your [family plan](family_plan)
-    - What's included in the [postpaid plan](postpaid_plan)
-    - What happens if I switch to a [prepaid](prepaid_plan) plan?
-    - How do I [change my plan](plan_change) to [postpaid](postpaid_plan)?
-    - Can I [change my plan](plan_change) to something with more data?
-    - How do I [change my plan](plan_change) from [family](family_plan) to [individual](plan_name)?
-    - What features does my current plan offer?
+    - [Change my current plan](plan_change) to the [family plan](plan_name).
+    - [Switch my plan](plan_change) to the [student plan](plan_name).
+    - [Replace this plan](plan_change) with the [unlimited plan](plan_name).
+    - [Switch out my current plan](plan_change) to the [senior plan](plan_name).
+    - [Downgrade my plan](plan_change) to the [basic plan](plan_name).
+    - [Change to](plan_change) to the [group plan](plan_name).
+    - [Basic](plan_name)
+    - [Premium](plan_name)
+    - [Unlimited](plan_name)
+    - [Family](plan_name)
+    - [Group](plan_name)
+    - [Prepaid](plan_name)
+    - [Postpaid](plan_name)
+    - [Data-only](plan_name)
+    - [International](plan_name)
+    - [Student](plan_name)
+    - [Senior](plan_name)
+    - [Basic plan](plan_name)
+    - [Premium plan](plan_name)
+    - [Unlimited plan](plan_name)
+    - [Family plan](plan_name)
+    - [Group plan](plan_name)
+    - [Prepaid plan](plan_name)
+    - [Postpaid plan](plan_name)
+    - [Data-only plan](plan_name)
+    - [International plan](plan_name)
+    - [Student plan](plan_name)
+    - [Senior plan](plan_name)
+    - 
 
