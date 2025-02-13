@@ -233,9 +233,10 @@ class AccountService:
     def planChange(self, newPlan, account_details):
         account = self.getAccount(account_details)
 
-        if not account:
-            return f"We could not change your plan as you do not seem to have an account. Would you like to make an account?"
+        if account is None:
+            return dispatcher.utter_message(text="We could not change your plan as you do not seem to have an account. Would you like to make an account?")
         
+
         account["plan"] = newPlan
 
         self.saveAccount()
@@ -574,7 +575,12 @@ class RemovePayment(Action):
         dipatcher.utter_message(text=message)
         return []
 
-
+class PlanValidator(FormValidationAction):
+    def name(self) -> str:
+        return "validate_plan_name_form"
+    
+    def validatePlan(self, slot_value: str, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict) -> dict:
+        
 
 class ChangePlans(Action):
     def name(self) -> str:
@@ -582,7 +588,7 @@ class ChangePlans(Action):
     
     def run(self, dispatcher, tracker, domain):
         account_details = tracker.get_slot("account_details")
-        newPlan = tracker.get_slot("new_plan")
+        newPlan = tracker.get_slot("plan_name")
         if not ValidateAccountDetails.validateAccountDetails(tracker):
             dispatcher.utter_message(text="In order to change the plan associated with your account, I need your either your account ID, email or phone number.")
             return []
@@ -598,50 +604,60 @@ class GetBasicPlanDetails(Action):
         return "action_basic_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getBasicPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "basic":
+            plans = Plans()
+            message = plans.getBasicPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 class GetPremiumPlanDetails(Action):
     def name(self) -> str:
         return "action_premium_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getPremiumPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "premium":
+            plans = Plans()
+            message = plans.getPremiumPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 class GetUnlimitedPlanDetails(Action):
     def name(self) -> str:
         return "action_unlimited_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getUnlimitedPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "unlimited":
+            plans = Plans()
+            message = plans.getUnlimitedPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 class GetFamilyPlanDetails(Action):
     def name(self) -> str:
         return "action_family_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getFamilyPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "family":
+            plans = Plans()
+            message = plans.getFamilyPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 class GetGroupPlanDetails(Action):
     def name(self) -> str:
         return "action_group_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getGroupPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "group":
+            plans = Plans()
+            message = plans.getGroupPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 
 class GetPrepaidPlanDetails(Action):
@@ -649,10 +665,12 @@ class GetPrepaidPlanDetails(Action):
         return "action_prepaid_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getPrepaidPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "prepaid":
+            plans = Plans()
+            message = plans.getPrepaidPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 
 class GetPostpaidPlanDetails(Action):
@@ -660,10 +678,12 @@ class GetPostpaidPlanDetails(Action):
         return "action_postpaid_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getPostpaidPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "postpaid":
+            plans = Plans()
+            message = plans.getPostpaidPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 
 class GetDataOnlyPlanDetails(Action):
@@ -671,10 +691,12 @@ class GetDataOnlyPlanDetails(Action):
         return "action_get_data_only_plan"
 
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getDataOnlyPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "data-only":
+            plans = Plans()
+            message = plans.getDataOnlyPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 
 class GetInternationalPlanDetails(Action):
@@ -682,10 +704,12 @@ class GetInternationalPlanDetails(Action):
         return "action_get_international_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getInternationalPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "international":
+            plans = Plans()
+            message = plans.getInternationalPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 
 
@@ -694,10 +718,12 @@ class GetStudentPlanDetails(Action):
         return "action_student_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getStudentPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "student":
+            plans = Plans()
+            message = plans.getStudentPlan()
+            dispatcher.utter_message(text=message)
+            return []
 
 
 class GetSeniorPlanDetails(Action):
@@ -705,7 +731,9 @@ class GetSeniorPlanDetails(Action):
         return "action_senior_plan"
     
     def run(self, dispatcher, tracker, domain):
-        plans = Plans()
-        message = plans.getSeniorPlan()
-        dispatcher.utter_message(text=message)
-        return []
+        getPlan = tracker.get_slot("plan_name")
+        if getPlan.lower() == "senior":
+            plans = Plans()
+            message = plans.getSeniorPlan()
+            dispatcher.utter_message(text=message)
+            return []

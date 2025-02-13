@@ -223,6 +223,7 @@ nlu:
     - What is my [bill for August](billing_history)?
     - I want to [see my bill](billing_history) for [July](month)?
     - Can you [show me my expenses](billing_history) for [last year](year)?
+    - 
 
     
 - intent: network_inform 
@@ -312,5 +313,4 @@ nlu:
     - [International plan](plan_name)
     - [Student plan](plan_name)
     - [Senior plan](plan_name)
-    - 
 
