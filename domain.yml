@@ -37,7 +37,9 @@ forms:
     - remove_method
 
   change_plan_form:
-    - new_plan
+    - plan_name
+  
+
   
 
 
@@ -159,9 +161,6 @@ actions:
   - action_check_location
   - action_check_signal_strength
   - action_check_service_status
-  - action_show_roaming_charge
-  - action_show_plan_name
-  - action_show_bill_type
   - action_current_payment_method
   - action_change_payment_method
   - action_switch_payment_method
@@ -184,8 +183,3 @@ actions:
   - action_check_network
   - action_check_outage
   - action_reset_network_settings
-  - action_view_billing_history
-  - action_enable_auto_payment
-  - action_upgrade_plan
-  - action_add_data
-  - action_pause_plan
