@@ -290,15 +290,18 @@ class Plans:
         plans = self.getPlans()
 
         if plans is None:
-            return "There are currently no available plans."
+            return [dispatcher.utter_message(text="There are currently no available plans."),
+                    SlotSet("plan_name", None)]
         
         for plan in Plans.plans.get("plans", []):
             if plan["name"].lower() == planName.lower():
                 planDetails = plan["description"]
                 features = plan["features"]
                 formattedFeatures = "\n".join(f"{key.capitalize()}: {value}" for key, value in features.items())
-                return f"{planName.capitalize()} Plan Details: \n\n Features:\n{formattedFeatures}"
-        return f"The {planName.capitalize()} plan is currently not available."
+                return [dispatcher.utter_message(text=f"{planName.capitalize()} Plan Details: \n\n Features:\n{formattedFeatures}"),
+                        SlotSet("plan_name", None)]
+        return [dispatcher.utter_message(text=f"The {planName.capitalize()} plan is currently not available."),
+                SlotSet("plan_name", None)]
     
 
     def getBasicPlan(self):
@@ -367,8 +370,9 @@ class ActionAccountBalance(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
         account_details = tracker.get_slot("account_details")
-        
-        if account_details is None:
+
+        dispatcher.utter_message(text=f"{account_details} + This is supposed to show None if nothing is entered.")
+        if not account_details:
             dispatcher.utter_message(text="Your account ID, email or phone number is required to be able to access your account details.")
             return []
 
@@ -575,12 +579,7 @@ class RemovePayment(Action):
         dipatcher.utter_message(text=message)
         return []
 
-class PlanValidator(FormValidationAction):
-    def name(self) -> str:
-        return "validate_plan_name_form"
-    
-    def validatePlan(self, slot_value: str, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict) -> dict:
-        
+
 
 class ChangePlans(Action):
     def name(self) -> str:

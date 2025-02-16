@@ -14,7 +14,7 @@ stories:
       entities:
         - balance_amount: true
     - action: account_details_form
-    - active_loop: null
+    - active_loop: account_details_form
     - action: action_show_balance_amount
     - intent: account_inform
       entities: 
@@ -30,7 +30,7 @@ stories:
     - active_loop: null
     - action: action_current_payment_method
     - intent: account_inform
-      entities: 
+      entities:   
         - billing_history: true
     - action: action_view_billing_history
 

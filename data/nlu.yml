@@ -73,7 +73,7 @@ nlu:
     - What is my current [balance](balance_amount)
     - I want to check my [balance](balance_amount)
     - Can I check [how much money I have](balance_amount) remaining
-    - I want to see the [amount of money I have](balance_amount) left over.
+    - I want to see the [amount of money I have](balance_amount) left over
     - Can I view my [remaining money](balance_amount)
     - Can you show my [last bill](billing_history)
     - How [can I pay](payment_methods) my bill online
@@ -210,7 +210,6 @@ nlu:
     - Can you tell me [all the bills](billing_history) from [three months ago](month).
     - Display for me [all my expenses](billing_history) from around [four months ago](month).
     - I need to see [all my expenses](billing_history) from [5 months ago](month)
-    - What happens if I miss a [payment](payment_method)
     - What are some [ways I can pay](payment_method)?
     - What [forms of payment](payment_method) are there?
     - How many [forms of payment](payment_method) are there?
@@ -223,7 +222,24 @@ nlu:
     - What is my [bill for August](billing_history)?
     - I want to [see my bill](billing_history) for [July](month)?
     - Can you [show me my expenses](billing_history) for [last year](year)?
-    - 
+    - Can you [change my current payment method](change_payment) of [credit card](current_method) to [Paypal](new_method).
+    - I want to [change my payment option](change_payment) from [Paypal](current_method) to [credit card](new_method).
+    - [Change my payment method](change_payment) from [bank transfer](current_method) to [credit card](new_method).
+    - I want to [change the payment option] from [credit card](current_method) to [bank transfer](new_method).
+    - [Change the payment method](change_payment) from [Paypal](current_method) to [credit card](new_method).
+    - [Change my current payment option](change_payment) from [credit card](current_method) to [Paypal](new_method).
+    - [Change my payment option](change_payment) from [debit card](current_method) to [Paypal](new_method).
+    - [Change my active payment method](change_payment) from [debit card](current_method) to [bank transfer](new_method).
+    - [Debit card](current_method)
+    - [Credit card](current_method)
+    - [Bank transfer](current_method)
+    - I want to [switch my payment method](switch_payment) from [debit card](current_method_switch) to [Paypal](other_method).
+    - [Swap my current payment option](switch_payment) from [credit card](current_method_switch) to [Paypal](other_method).
+    - [Switch my payment method](switch_payment) from [Paypal](current_method_switch) to [credit card](other_method).
+    - [Switch out my current payment option](switch_payment) from [Paypal](current_method_switch) to [debit card](other_method).
+    - [Replace my current payment method](switch_payment) from [credit card](current_method_switch) to [bank transfer](other_method).
+    - [Swap ]
+
 
     
 - intent: network_inform 

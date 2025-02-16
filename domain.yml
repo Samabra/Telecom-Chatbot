@@ -15,7 +15,53 @@ slots:
     mappings:
       - type: from_entity
         entity: account_details
+  current_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: current_method
+  
+  new_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: new_method
+  
+  current_method_switch:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: current_method_switch
+  other_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: other_method
+  new_method_add:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: new_method_add
+  
+  remove_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: remove_method
+  plan_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: plan_name
 
+  
 forms:
   account_details_form:
     required_slots:
@@ -39,6 +85,8 @@ forms:
   change_plan_form:
     - plan_name
   
+  plan_details_form:
+    - plan_name
 
   
 
@@ -78,6 +126,8 @@ entities:
   - compare_prepaid_postpaid
   - plan_pause
   - network
+  - change_payment
+  - switch_payment
 
 responses:
   utter_greet:
